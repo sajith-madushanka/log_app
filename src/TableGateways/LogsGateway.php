@@ -34,7 +34,7 @@ class LogsGateway {
             INSERT INTO log_data 
                 (user_id, status_code,response,payload,route,date_time,server)
             VALUES
-                (:user_id, :status_code, :response, :payload, :route, :date_time :server);
+                (:user_id, :status_code, :response, :payload, :route, :date_time, :server);
         ";
 
         try {
