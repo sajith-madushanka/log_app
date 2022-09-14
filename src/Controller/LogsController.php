@@ -51,7 +51,7 @@ class LogsController {
     {
         // return $_REQUEST['user_id'];
         //$input = (array) json_decode(file_get_contents('php://input'), TRUE);
-        $this->LogsGateway->insert($_REQUEST['user_id'],$_REQUEST['status_code'],$_REQUEST['response'],$_REQUEST['payload'],$_REQUEST['route'],$_REQUEST['date_time']);
+        $this->LogsGateway->insert($_REQUEST['user_id'],$_REQUEST['status_code'],$_REQUEST['response'],$_REQUEST['payload'],$_REQUEST['route'],$_REQUEST['date_time'],$_REQUEST['stage']);
         $response['status_code_header'] = 'HTTP/1.1 201 Created';
         $response['body'] = 'Inserted the record';
         return $response;

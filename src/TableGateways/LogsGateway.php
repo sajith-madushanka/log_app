@@ -28,13 +28,13 @@ class LogsGateway {
         }
     }
 
-    public function insert($user_id,$status_code,$response,$payload,$route,$date_time)
+    public function insert($user_id,$status_code,$response,$payload,$route,$date_time,$stage)
     {
         $statement = "
             INSERT INTO log_data 
-                (user_id, status_code,response,payload,route,date_time)
+                (user_id, status_code,response,payload,route,date_time,server)
             VALUES
-                (:user_id, :status_code, :response, :payload, :route, :date_time);
+                (:user_id, :status_code, :response, :payload, :route, :date_time :stage);
         ";
 
         try {
@@ -45,7 +45,8 @@ class LogsGateway {
                 'response'  => $response,
                 'payload' => $payload,
                 'route' => $route,
-                'date_time' => $date_time
+                'date_time' => $date_time,
+                'stage' => $stage
             ));
             return $statement->rowCount();
         } catch (\PDOException $e) {
